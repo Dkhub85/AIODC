@@ -7,8 +7,8 @@
 // @match https://*.crownofthegods.com
 // @include https://*.crownofthegods.com/?s=*
 // @grant none
-// @updateURL https://raw.githubusercontent.com/DKhub85/AIODC/master/aiodc.user.js
-// @downloadURL https://raw.githubusercontent.com/DKhub85/AIODC/master/aiodc.user.js
+// @updateURL https://raw.githubusercontent.com/DKhub85/AIODC/main/aiodc.user.js
+// @downloadURL https://raw.githubusercontent.com/DKhub85/AIODC/main/aiodc.user.js
 // ==/UserScript==
 
 (function() {
