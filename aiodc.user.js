@@ -32,103 +32,7 @@
     var itime;
     var iiclaim;
     var Discordmembers={
-        luminoxus:"716608712873082881",
-        lord_marty:"747244123668480100",
-        dhruv:"182783045072322561",
-        darthranger:"553666259049250818",
-        arianna:"148193568408731650",
-        vindu230:"382738520252481536",
-        sashie1412:"730984286144036886",
-        windfall:"520727816078098432",
-        taelis:"343441273190875136",
-        avatar:"105419370737475584",
-        ownography:"521389666503622656",
-        growl:"748941538679324702",
-        marine:"marine",
-        truedat:"240230657933049856",
-        gomraz:"751534601524084737",
-        priapus:"474013757857857547",
-        splinter117:"365887090937954305",
-        ftaff:"599184706126348298",
-        emmabunny:"290816657876713473",
-        gopackers:"714835859039584256",
-        gatekeeper:"709495118754873447",
-        bjay15:"bjay15",
-        tremor:"377080479989628955",
-        aftermath:"378416951988453376",
-        avenge:"202117964441452546",
-        diefaster:"338430229334720512",
-        fripka:"751701076163428465",
-        halifaxkid:"halifaxkid",
-        hells:"hells",
-        symbio:"422273170964348928",
-        dhyasta:"602330266454851614",
-        baloon:"baloon",
-        cubstire:"259757202720423937",
-        klass:"498943056578609162",
-        unicron:"unicorn",
-        atn:"198119335993016320",
-        noxe:"257255425257242624",
-        mde:"357473469568385025",
-        trippy:"304181884357836800",
-        foreheadbig	:"759091498225893417",
-        arve:"279987964761604096",
-        redsides:"redsides",
-        hallcon:"346435136990085123",
-        lazylion:"764050306261581837",
-        rem	:"453273891453009922",
-        zealeots:"318185014754017281",
-        figgis:"297739608240816130",
-        humbie:"757606501010505790",
-        shizzy:"Shizzy",
-        lordben:"lordben",
-        zharomir:"765612113929961543",
-        batman:"94716243004633088",
-        eatin:"774424818706677760",
-        thebeast01:"132724116007419904",
-        zafar:"763555671685726238",
-        bourrot:"bourrot",
-        burningdead0:"673204530342658062",
-        cientista:"297581930042359808",
-        gators112358:"204016288580894721",
-        wolf:"454898213665636373",
-        axao:"axao",
-        gropo:"179086059026644992",
-        nerdgeekout:"498299303874265097",
-        tlgger:"308406388005011458",
-        arethousa:"413033725522083850",
-        nonamenewbie:"764434893135937586",
-        dragooon:"244595980979273729",
-        scenarion:"780416128077398017",
-        edahlbeck:"240666948730486786",
-        viditvia:"536731269053284353",
-        kingeo:"kingeo",
-        guiw:"699992335576072334",
-        mangoking:"143717017847857153",
-        alphabr:"293024989740007435",
-        bdsmgirl:"184042133618032641",
-        bugsyglitchy:"750520386478800916",
-        caesarsghost:"644208800919977984",
-        gandalf72:"763916117248049242",
-        popeye:"764185594166902816",
-        wolfcain:"338134316057886720",
-        madnomad:"763163288979767327",
-        thebrain:"465510812350676992",
-        shannus:"Shannus",
-        vampyre:"179480050285019136",
-        cybernoid:"345665610459381760",
-        biker314:"Biker314",
-        reefoo:"733198771856605204",
-        narcolepsy:"642228850000134144",
-        ladysera:"297868941974306818",
-        queenbess:"queenbess",
-        slik:"slik",
-        camerlottoo:"344127673653526528",
-        anitsirc:"Anitsirc",
-        mercuryxs:"MercuryXS",
-        pyello:"752431350652469308",
-        whackamole:"178509092514562049",
-        osbourne:"104660648260026368"
+        dhruv:"182783045072322561"
     };
 
     setTimeout(function() {
@@ -139,7 +43,6 @@
                         var url=this.responseURL;
                         if (url.indexOf('poll2.php')!=-1) {
                             poll2=JSON.parse(this.response);
-//                            fdhx=poll2.AIC;
                             if(poll2.AIC != dhx){
                                 dhx=poll2.AIC;
                                 incomingdata();
@@ -169,7 +72,6 @@
     }
 
     const incomingdataq = async (data) => {
-        //    function incomingdataq(data){
         var y= data.inc;
         console.log(y);
         for (var i in y) {
@@ -178,8 +80,6 @@
             var temptcords=y[i].txy.match(/\d+/g);
             scords="C"+tempscords[1]+" "+tempscords[2]+":"+tempscords[3];
             tcords="C"+temptcords[1]+" "+temptcords[2]+":"+temptcords[3];
-            //scords=y[i].axy.substring(48,61);
-            //tcords=y[i].txy.substring(48,61);
             tx=temptcords[2];
             ty=temptcords[3];
             sx=tempscords[2];
@@ -193,10 +93,6 @@
             else{
             iiclaim=" ";
             }
-            //tx=y[i].txy.substring(53,56);
-            //ty=y[i].txy.substring(57,60);
-            //sx=y[i].axy.substring(53,56);
-            //sy=y[i].axy.substring(57,60);
             sname=y[i].apn;
             tname=y[i].tpn;
             atime=y[i].art;
@@ -418,7 +314,7 @@
     }
     function sendMessage() {
         var request = new XMLHttpRequest();
-        request.open("POST", "https://discord.com/api/webhooks/782201348329308180/jnFfOWNeWbXdPVstuCAwJARoT4OnWIy_v6Kojswyc1yKwpNfHTYQIkQeSPgDzuit50YU");
+        request.open("POST", "your discord webhook link here");
 
         request.setRequestHeader('Content-type', 'application/json');
 
