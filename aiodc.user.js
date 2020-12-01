@@ -1,11 +1,14 @@
 // ==UserScript==
-// @name         incoming discord webhook 5
-// @namespace    http://tampermonkey.net/
-// @version      0.1
-// @description  chat 5
-// @author       incoming discord webhook
-// @match        https://*.crownofthegods.com
-// @grant        none
+// @name Cotg incoming attack on discord chat
+// @namespace https://github.com/Dkhub85/AIODC
+// @version 1.0.0
+// @description Cotg incoming attack on discord chat
+// @author Dhruv
+// @match https://*.crownofthegods.com
+// @include https://*.crownofthegods.com/?s=*
+// @grant none
+// @updateURL https://raw.githubusercontent.com/DKhub85/AIODC/master/aiodc.user.js
+// @downloadURL https://raw.githubusercontent.com/DKhub85/AIODC/master/aiodc.user.js
 // ==/UserScript==
 
 (function() {
