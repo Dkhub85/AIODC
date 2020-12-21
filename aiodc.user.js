@@ -13,7 +13,7 @@
 
 (function() {
     var poll2; //poll2data
-    var dhx=0;
+    var dhx=-1;
     var incprediction;
     var inccords;
     var outcords;
@@ -34,6 +34,7 @@
     var iclaim;
     var itime;
     var iiclaim;
+    var measure;
     var Discordmembers={
         dhruv:"182783045072322561"
     };
@@ -46,10 +47,13 @@
                         var url=this.responseURL;
                         if (url.indexOf('poll2.php')!=-1) {
                             poll2=JSON.parse(this.response);
-                            if(poll2.AIC != dhx){
+                            if(dhx<0){
+                                dhx=poll2.AIC;
+                                zincomingdata();
+                            }
+                            if(poll2.AIC != dhx && dhx>=0){
                                 dhx=poll2.AIC;
                                 incomingdata();
-                                console.log(dhx);
                             }
                         }
                     }
@@ -59,6 +63,15 @@
         })(XMLHttpRequest.prototype.open);
     },4000);
 
+    function zincomingdata(){
+        jQuery.ajax({url: 'includes/getIO.php',type: 'POST',aysnc:false,
+                     success: function(data) {
+                         var indata=JSON.parse(data);
+                         zincomingdataq(indata);
+                     }
+                    });
+
+    }
     function incomingdata(){
         jQuery.ajax({url: 'includes/getIO.php',type: 'POST',aysnc:false,
                      success: function(data) {
@@ -76,7 +89,6 @@
 
     const incomingdataq = async (data) => {
         var y= data.inc;
-        console.log(y);
         for (var i in y) {
             await sleep(500)
             var tempscords=y[i].axy.match(/\d+/g);
@@ -98,20 +110,33 @@
             }
             sname=y[i].apn;
             tname=y[i].tpn;
+            if(tname==null){
+                tname="lawless";
+            }
             atime=y[i].art;
             stime=y[i].spt;
-            console.log(scords);
-            console.log(tcords);
-            console.log(tx);
-            console.log(ty);
-            console.log(sx);
-            console.log(sy);
-            console.log(sname);
-            console.log(tname);
-
             if(pushinid.indexOf(measure) == -1){
                 pushinid.push(measure);
                 incomings();
+            }
+        }
+    }
+    function zincomingdataq(data){
+        var y= data.inc;
+        for (var i in y) {
+            var tempscords=y[i].axy.match(/\d+/g);
+            var temptcords=y[i].txy.match(/\d+/g);
+            scords="C"+tempscords[1]+" "+tempscords[2]+":"+tempscords[3];
+            tcords="C"+temptcords[1]+" "+temptcords[2]+":"+temptcords[3];
+            tx=temptcords[2];
+            ty=temptcords[3];
+            sx=tempscords[2];
+            sy=tempscords[3];
+            iclaim=y[i].b;
+            itime=y[i].art;
+            measure = tx.concat(ty,sx,sy,itime,iclaim);
+            if(pushinid.indexOf(measure) == -1){
+                pushinid.push(measure);
             }
         }
     }
