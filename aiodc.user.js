@@ -24,6 +24,7 @@
     var scords;
     var sname;
     var tname;
+    var intype;
     var tx;
     var ty;
     var sx;
@@ -110,6 +111,7 @@
             }
             sname=y[i].apn;
             tname=y[i].tpn;
+            intype=y[i].ty;
             if(tname==null){
                 tname="lawless";
             }
@@ -321,9 +323,7 @@
                     incprediction="Navy "+speeeed[zns]+"%";
                 }
             }
-        } else if ($(':nth-child(1)',this).html()) {
-            incprediction="Portal";
-        }
+        } 
         else {
             if(zns != -1){incprediction="Navy "+speeeed[zns]+"%";}
             else{
@@ -331,12 +331,17 @@
             }
         }
 
-        /*       if($(':nth-child(2)',this).text()=="Sieging"){
-            incprediction="Sieging";
+        if (intype=="Portal") {
+            incprediction="Portal";
         }
-        if($(':nth-child(2)',this).text()=="Internal Attack"){
-            incprediction="Internal Attack";
-        }*/
+        if(intype=="Sieging"){
+            var tempx=",Sieging"
+            incprediction = incprediction.concat(temp);
+        }
+        if(intype=="Internal Attack"){
+            var tempy=",Internal Attack"
+            incprediction = incprediction.concat(tempy);
+        }
 
         sendMessage();
     }
