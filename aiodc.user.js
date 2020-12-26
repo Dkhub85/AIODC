@@ -336,7 +336,7 @@
         }
         if(intype=="Sieging"){
             var tempx=",Sieging"
-            incprediction = incprediction.concat(temp);
+            incprediction = incprediction.concat(tempx);
         }
         if(intype=="Internal Attack"){
             var tempy=",Internal Attack"
